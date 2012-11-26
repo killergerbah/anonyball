@@ -12,6 +12,7 @@ namespace AnonyBall.App_Start
     {
         public static MessageQueue messageQueue;
         public static ConnectedUsers connectedUsers;
+        private static TimeSpan TIMEOUT = TimeSpan.FromSeconds(20);
         static AnonyBall()
         {
             messageQueue = new MessageQueue();
@@ -29,7 +30,8 @@ namespace AnonyBall.App_Start
             {
                 var message = messageQueue.Dequeue();
                 //Only return message from someone still connected
-                if (connectedUsers.Contains(message.User)) 
+                //and that has not timed out
+                if (connectedUsers.Contains(message.User) && DateTime.Now.Subtract(message.Date) < TIMEOUT) 
                 {
                     return message;
                 }

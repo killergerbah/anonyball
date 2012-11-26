@@ -13,7 +13,7 @@
         NOW_REPLYING: "NOW_REPLYING",
         NOW_CONFIRMING: "NOW_CONFIRMING"
     };
-    var TIMEOUT = 30000;
+    var TIMEOUT = 22000;
     var currentMode = Mode.SEND;
     var $listeners = $(".listener");
     var setMode = function (mode, data) {

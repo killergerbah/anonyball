@@ -10,6 +10,7 @@ namespace AnonyBall.Core
         public int Id { get; set; }
         public string Text { get; set; }
         public User User { get; set; }
+        public DateTime Date { get; set; }
         private static Random _rand;
 
         static Message()
@@ -22,6 +23,7 @@ namespace AnonyBall.Core
             Text = text;
             Id = _rand.Next();
             User = user;
+            Date = DateTime.Now;
         }
     }
 }

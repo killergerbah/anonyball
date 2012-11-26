@@ -1,0 +1,129 @@
+﻿body {
+    font-size: 16px;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+#busyAnim {
+    margin-left:auto;
+    margin-right:auto;
+    top:5px;
+    width:160px;
+    height:50px;
+    visibility:hidden;
+}
+#background {
+    position:absolute;
+    z-index:0;
+    top:0;
+    left:0;
+    width:100%;
+    height:500px;
+    background-image:url('/Content/anonyball.png');
+    background-repeat:no-repeat;
+    background-position:center;
+}
+#content {
+    position:relative;
+    z-index:1;
+    margin-top:150px;
+    height:200px;
+    width:960px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+#about_container {
+    position:absolute;
+    z-index:1;
+    top:5px;
+    left:5px;
+}
+#about {
+    display:none;
+    font-size:14px;
+}
+#info {
+    width:100%;
+    text-align:center;
+    position:absolute;
+    top:100px;
+    font-size:18px;
+    background-color:rgba(255, 255, 255, .5);
+}
+#anonyBall input {
+    border:none;
+    outline:none;
+    text-align:center;
+    width:400px;
+    background-color:white;
+    font-size:24px;
+    background-color:rgba(255, 255, 255, .5);
+}
+
+#numUsers {
+    position:fixed;
+    bottom:0;
+    left:0;
+}
+.message {
+    font-size: 24px;
+}
+.blurred {
+    opacity: .5;
+}
+.focused {
+    opacity:1;
+}
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}

@@ -34,3 +34,6 @@ C:\Users\R-J\Documents\Visual Studio 2012\Projects\AnonyBall\AnonyBall\bin\Syste
 C:\Users\R-J\Documents\Visual Studio 2012\Projects\AnonyBall\AnonyBall\bin\System.Web.WebPages.Razor.xml
 C:\Users\R-J\Documents\Visual Studio 2012\Projects\AnonyBall\AnonyBall\obj\Debug\AnonyBall.dll
 C:\Users\R-J\Documents\Visual Studio 2012\Projects\AnonyBall\AnonyBall\obj\Debug\AnonyBall.pdb
+C:\Users\R-J\Documents\Visual Studio 2012\Projects\AnonyBall\AnonyBall\bin\Content\anonyball.png
+C:\Users\R-J\Documents\Visual Studio 2012\Projects\AnonyBall\AnonyBall\bin\Content\busy.css
+C:\Users\R-J\Documents\Visual Studio 2012\Projects\AnonyBall\AnonyBall\bin\Content\Site.css
