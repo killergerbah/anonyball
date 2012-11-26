@@ -14,6 +14,7 @@
         NOW_CONFIRMING: "NOW_CONFIRMING"
     };
     var TIMEOUT = 22000;
+    var timeout;
     var currentMode = Mode.SEND;
     var $listeners = $(".listener");
     var setMode = function (mode, data) {
@@ -87,6 +88,7 @@
                     .css("opacity", 0)
                     .fadeTo(1500, 1)
                     .text(text);
+                clearTimeout(timeout);
                 setMode(Mode.CONFIRM, true);
             }
         }
@@ -119,7 +121,7 @@
                     .off("blur")
                     .off("focus")
                     .prop("disabled", true);
-            setTimeout(function () {
+            timeout = setTimeout(function () {
                 setMode(Mode.CONFIRM, false);
             }, TIMEOUT);
         })
