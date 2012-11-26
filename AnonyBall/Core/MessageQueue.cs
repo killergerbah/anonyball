@@ -16,7 +16,7 @@ namespace AnonyBall.Core
 
         public void Enqueue(string text, string connectionId)
         {
-            queue.Enqueue(new Message(text, connectionId));
+            queue.Enqueue(new Message(text, new User(connectionId)));
         }
 
         public void Enqueue(Message message)

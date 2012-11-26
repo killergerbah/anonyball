@@ -9,7 +9,7 @@ namespace AnonyBall.Core
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public string ConnectionId { get; set; }
+        public User User { get; set; }
         private static Random _rand;
 
         static Message()
@@ -17,11 +17,11 @@ namespace AnonyBall.Core
             _rand = new Random();
         }
 
-        public Message(string text, string connectionId)
+        public Message(string text, User user)
         {
             Text = text;
             Id = _rand.Next();
-            ConnectionId = connectionId;
+            User = user;
         }
     }
 }

@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AnonyBall.Core;
+using System.Threading.Tasks;
 
 namespace AnonyBall.App_Start
 {
     public class AnonyBall : Hub
     {
         public static MessageQueue messageQueue;
-
+        public static ConnectedUsers connectedUsers;
         static AnonyBall()
         {
             messageQueue = new MessageQueue();
+            connectedUsers = new ConnectedUsers();
         }
 
         public void AddMessage(string text)
@@ -23,13 +25,31 @@ namespace AnonyBall.App_Start
 
         public Message GetMessage()
         {
-            if (!messageQueue.IsEmpty()) 
-                return messageQueue.Dequeue();
+            while (!messageQueue.IsEmpty()) 
+            {
+                var message = messageQueue.Dequeue();
+                //Only return message from someone still connected
+                if (connectedUsers.Contains(message.User)) 
+                {
+                    return message;
+                }
+            }
             return null;
         }
 
         public void Reply(Message message, string reply){
-            Clients.Client(message.ConnectionId).addReply(reply, message.Id);
+            Clients.Client(message.User.ConnectionId).addReply(reply, message.Id);
+        }
+
+        public override Task OnConnected()
+        {
+            connectedUsers.AddUser(new User(Context.ConnectionId));
+            return Clients.All.populateNumUsers(connectedUsers.Count());
+        }
+        public override Task OnDisconnected()
+        {
+            connectedUsers.RemoveUser(new User(Context.ConnectionId));
+            return Clients.All.populateNumUsers(connectedUsers.Count());
         }
     }
 }

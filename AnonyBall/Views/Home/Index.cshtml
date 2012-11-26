@@ -1,10 +1,48 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Anonyball";
 }
-
-<div id="anonyBall"></div>
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/busy.css" />
+}
+<div id="about_container">
+    Anonyball (<a id="aboutlink" href="javascript:void(0)">about</a>)
+    <div id="about">
+    The Internet's version of the magic 8-ball. <br />
+    Type anything and receive a reply from another user<br />
+    Find it on <a href="http://github.com/killergerbah/anonyball">github</a><br />.
+    </div>
+</div>
+<div id="background"></div>
+<div id="info" class="listener"></div>
+<div id="content">
+    <div id="busyAnim" class="listener">
+        <div id="circleG">
+        <div id="circleG_1" class="circleG">
+        </div>
+        <div id="circleG_2" class="circleG">
+        </div>
+        <div id="circleG_3" class="circleG">
+        </div>
+        </div>
+    </div>
+    <div id="anonyBall" class="listener"></div>
+    <div id="numUsers"></div>
+</div>
 @section scripts{
     <script src="~/Scripts/jquery.signalR-1.0.0-alpha2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/anonyball.js"></script>
     <script type="text/javascript" src="signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            var displayAbout = function () {
+                $("#about").css("display", "block");
+                $(this).one("click", hideAbout);
+            };
+            var hideAbout = function () {
+                $("#about").css("display", "none");
+                $(this).one("click", displayAbout);
+            };
+            $("#aboutlink").one("click", displayAbout);
+        });
+    </script>
 }
